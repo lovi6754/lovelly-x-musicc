@@ -17,7 +17,6 @@ import os
 import re
 import asyncio
 import aiohttp
-import base64
 
 from PIL import (
     Image,
@@ -32,29 +31,34 @@ from Elevenyts.helpers import Track
 
 
 PANEL_W, PANEL_H = 1030, 610
-PANEL_X = (1280 - PANEL_W) // 2
-PANEL_Y = 55
+PANEL_X = 0
+PANEL_Y = 0
 
-THUMB_W, THUMB_H = 930, 420
-THUMB_X = PANEL_X + (PANEL_W - THUMB_W) // 2
-THUMB_Y = PANEL_Y + 30
+# Left YouTube Thumbnail
+THUMB_W, THUMB_H = 520, 620
+THUMB_X = 70
+THUMB_Y = 50
 
-TITLE_X = THUMB_X + 5
-TITLE_Y = THUMB_Y + THUMB_H + 25
+# Right Side Title
+TITLE_X = 620
+TITLE_Y = 120
 
-META_Y = TITLE_Y + 58
+# Meta Text
+META_Y = 190
 
-BAR_X = THUMB_X + 5
-BAR_Y = META_Y + 60
+# Progress Bar
+BAR_X = 620
+BAR_Y = 280
 
-BAR_RED_LEN = 330
-BAR_TOTAL_LEN = 920
+BAR_RED_LEN = 180
+BAR_TOTAL_LEN = 520
 
+# Control Icons
 ICONS_W, ICONS_H = 420, 45
-ICONS_X = PANEL_X + (PANEL_W - ICONS_W) // 2
-ICONS_Y = BAR_Y + 65
+ICONS_X = 700
+ICONS_Y = 360
 
-MAX_TITLE_WIDTH = 850
+MAX_TITLE_WIDTH = 560
 
 _f = "QXJ0aXN0Ym90cw=="
 
@@ -151,61 +155,11 @@ class Thumbnail:
 
             with Image.open(temp) as temp_img:
                 base = temp_img.resize(size).convert("RGBA")
+                template = Image.open(
+    "Elevenyts/helpers/music_template.png"
+).convert("RGBA").resize(size)
 
-            bg = base.filter(ImageFilter.GaussianBlur(28))
-
-            bg = ImageEnhance.Brightness(bg).enhance(0.25)
-
-            bg = ImageEnhance.Contrast(bg).enhance(1.4)
-
-            overlay = Image.new(
-                "RGBA",
-                size,
-                (0, 0, 0, 120)
-            )
-
-            bg = Image.alpha_composite(bg, overlay)
-
-            panel = Image.new(
-                "RGBA",
-                (PANEL_W, PANEL_H),
-                (10, 10, 10, 155)
-            )
-
-            border = Image.new(
-                "RGBA",
-                (PANEL_W, PANEL_H),
-                (0, 0, 0, 0)
-            )
-
-            bd = ImageDraw.Draw(border)
-
-            bd.rounded_rectangle(
-                (0, 0, PANEL_W - 1, PANEL_H - 1),
-                radius=42,
-                outline=(0, 255, 255, 220),
-                width=3
-            )
-
-            mask = Image.new(
-                "L",
-                (PANEL_W, PANEL_H),
-                0
-            )
-
-            ImageDraw.Draw(mask).rounded_rectangle(
-                (0, 0, PANEL_W, PANEL_H),
-                radius=42,
-                fill=255
-            )
-
-            panel = Image.alpha_composite(panel, border)
-
-            bg.paste(
-                panel,
-                (PANEL_X, PANEL_Y),
-                mask
-            )
+            bg = template.copy()
 
             draw = ImageDraw.Draw(bg)
 
@@ -216,7 +170,7 @@ class Thumbnail:
                 font=self.signature_font
             )
 
-            thumb = base.resize((THUMB_W, THUMB_H))
+            thumb = base.resize((520, 620))
 
             tmask = Image.new(
                 "L",
@@ -225,15 +179,15 @@ class Thumbnail:
             )
 
             ImageDraw.Draw(tmask).rounded_rectangle(
-                (0, 0, THUMB_W, THUMB_H),
-                radius=28,
-                fill=255
+    (0, 0, thumb.width, thumb.height),
+    radius=35,
+    fill=255
             )
 
             bg.paste(
-                thumb,
-                (THUMB_X, THUMB_Y),
-                tmask
+    thumb,
+    (70, 50),
+    tmask
             )
 
             clean_title = re.sub(
