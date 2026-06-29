@@ -43,8 +43,8 @@ class Config:
         self.SESSION3: str = getenv("STRING_SESSION3", "")
 
         # Support Links
-        self.SUPPORT_CHANNEL: str = getenv("SUPPORT_CHANNEL", "https://t.me/ArushUpdates")
-        self.SUPPORT_CHAT: str = getenv("SUPPORT_CHAT", "https://t.me/ArushSupport")
+        self.SUPPORT_CHANNEL: str = getenv("SUPPORT_CHANNEL", "https://t.me/+xHz3OmQTHSI0Mzk1")
+        self.SUPPORT_CHAT: str = getenv("SUPPORT_CHAT", "https://t.me/+IAmUQZd310w4ZWQ1")
 
         # Excluded Chats
         self.EXCLUDED_CHATS: List[int] = self._parse_excluded_chats()
@@ -68,10 +68,10 @@ class Config:
         self.COOKIES_URL: List[str] = self._parse_cookies()
 
         # Images
-        self.DEFAULT_THUMB: str = getenv("DEFAULT_THUMB", "https://files.catbox.moe/2s7cmc.jpg")
-        self.PING_IMG: str = getenv("PING_IMG", "https://files.catbox.moe/huxvgj.jpg")
-        self.START_IMG: str = getenv("START_IMG", "https://files.catbox.moe/1pijmj.jpg")
-        self.RADIO_IMG: str = getenv("RADIO_IMG", "https://files.catbox.moe/kpag5m.png")
+        self.DEFAULT_THUMB: str = getenv("DEFAULT_THUMB", "https://files.catbox.moe/ejxqm0.jpg")
+        self.PING_IMG: str = getenv("PING_IMG", "https://files.catbox.moe/ejxqm0.jpg")
+        self.START_IMG: str = getenv("START_IMG", "https://files.catbox.moe/ejxqm0.jpg")
+        self.RADIO_IMG: str = getenv("RADIO_IMG", "https://files.catbox.moe/ejxqm0.jpg")
         
         # Sticker ID for welcome message
         self.STICKER_ID: str = getenv("STICKER_ID", "CAACAgUAAxkBAAERZd9qMHDSNUAH_8ZAnU4aT97Aw5THZwACdh8AApKxgFWOSimDJoOjCjwE")
