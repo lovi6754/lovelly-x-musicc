@@ -550,13 +550,13 @@ async def _forcemode(_, query: types.CallbackQuery):
 async def source_image(_, query: types.CallbackQuery):
     await query.answer()
     await query.message.reply_photo(
-        photo="https://files.catbox.moe/7vsvw9.png",
-        caption="❤️ Powered By Arush\n🤖 @AarushBabeMusic_Bot",
+        photo="https://files.catbox.moe/ejxqm0.jpg",
+        caption="❤️ Powered By yuvi\n🤖 @Inaya_music143_bot",
         reply_markup=types.InlineKeyboardMarkup(
             [[
                 types.InlineKeyboardButton(
-                    "⚡ Powered By Arush",
-                    url="https://t.me/innocentpapaboltee"
+                    "⚡ Powered By yuvi",
+                    url="https://t.me/x_yuvii"
                 )
             ]]
         )
