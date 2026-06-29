@@ -6,9 +6,7 @@
 # Powered By   : Arush
 # Type         : API Based Telegram Music Bot
 #
-# Bot          : @AarushBabeMusic_Bot
-# Channel      : https://t.me/innocentpapaboltee
-# GitHub       : https://github.com/Arush
+# Bot          :
 #
 # Unauthorized copying, modification, or redistribution
 # of this source code without permission is prohibited.
@@ -232,8 +230,8 @@ class Inline:
             ],
         ]
         rows.append([
-                self.ikb(text="⚡ Powered By Arush",
-                         url="https://t.me/innocentpapaboltee",
+                self.ikb(text="⚡ Powered By yuvii",
+                         url="https://t.me/x_yuvii",
                          style=ButtonStyle.SUCCESS),
             ])
         return self.ikm(rows)
