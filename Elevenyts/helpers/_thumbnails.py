@@ -60,7 +60,7 @@ _f = "QXJ1c2g="
 
 
 def _decode_f():
-    return "✦ ARUSH ✦"
+    return "✦ YUVII ✦"
 
 
 def trim_to_width(text: str, font, max_w: int) -> str:
