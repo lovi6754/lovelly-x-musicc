@@ -6,10 +6,7 @@
 # Powered By   : Arush
 # Type         : API Based Telegram Music Bot
 #
-# Bot          : @ArushApibot
-# Channel      : https://t.me/innocentpapaboltee
-# GitHub       : https://github.com/Arush
-#
+# Bot          : @
 # Unauthorized copying, modification, or redistribution
 # of this source code without permission is prohibited.
 # ==========================================================
